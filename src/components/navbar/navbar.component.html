@@ -12,6 +12,12 @@
         <a ngbNavLink>Contact</a>
       </li>
       
+      <li ngbNavItem>
+        <input type="text" name= "displayName" placeholder="Enter user name" [(ngModel)]="displayName" >
+        <button type="submit" (click)="onSubmit()"> Submit </button>
+      </li>
+
+
     </ul>
     <div  [ngbNavOutlet]="nav"></div> 
 </div>

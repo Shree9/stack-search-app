@@ -1,0 +1,7 @@
+<div>
+    <h2>Stack User Lists Containing {{displayName}}</h2>
+    <ul *ngFor="let user of users" #user>
+      <button mat-list-item (click)="getDetails(user)"> {{user.display_name}} </button>
+    </ul> 
+  </div>
+  
