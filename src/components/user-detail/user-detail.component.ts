@@ -4,8 +4,7 @@ import { IUser } from 'src/domain/user';
 
 @Component({
   selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  
+  templateUrl: './user-detail.component.html'
 })
 export class UserDetailComponent implements OnInit {
   

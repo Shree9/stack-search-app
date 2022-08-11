@@ -6,30 +6,29 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  templateUrl: './user-list.component.html'
 })
 export class UserListComponent implements OnInit{
 
-  //  users : IUser[] = [] 
+   users : IUser[] = [] 
 
-  users = [
-    {"user_id" : 1011 , 
-      "display_name" : "shree",
-      "location" : "hyderabad", 
-      "reputation" : 3400
-    },
-    {"user_id" : 1010 , 
-      "display_name" : "tocho",
-      "location" : "hyderabad", 
-      "reputation" : 53339
-    },
-    {"user_id" : 1014 , 
-      "display_name" : "priscilla",
-      "location" : "ohio", 
-      "reputation" : 47000
-    }
-]  
+//   users = [
+//     {"user_id" : 1011 , 
+//       "display_name" : "shree",
+//       "location" : "hyderabad", 
+//       "reputation" : 3400
+//     },
+//     {"user_id" : 1010 , 
+//       "display_name" : "tocho",
+//       "location" : "hyderabad", 
+//       "reputation" : 53339
+//     },
+//     {"user_id" : 1014 , 
+//       "display_name" : "priscilla",
+//       "location" : "ohio", 
+//       "reputation" : 47000
+//     }
+// ]  
    sample : any = [] 
    userListError = ""
   displayName: string = "";
@@ -38,10 +37,12 @@ export class UserListComponent implements OnInit{
        this.displayName = this._router.getCurrentNavigation()?.extras.state?.['displayName'];
   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
       console.log(this.displayName)
-      // this._userService.getUsers().then(users => this.users = users);
-      // this._userService.getUsersByDisplayName(this.displayName).then(users => this.users = users);
+      // it is fecthing the data but i couldnt figure out why it is not storing it in this.users
+      console.log(this._userService.getUsersByDisplayName(this.displayName).values()) 
+      this.users = this._userService.getUsersByDisplayName(this.displayName)
+      console.log(this.users)
   }
 
   getDetails(user : any) {

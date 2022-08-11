@@ -1,5 +1,26 @@
 # StackSearchApp
 
+
+Note: 
+
+- I was able to connect with StackExchange API and retreive data 
+
+- I have the function to the point that when the list of user data comes from the API (or static data in my case commented out) it will show them as button and then when we press it, it will give the user details. 
+
+- Issue: Getting a hang of Angular was a bit complicated than I thought. I have experience with ReactJS so i was able to  pull this out as much as I can. 
+
+- For some reason, I am not able link the data that I retreive from the API with my state variable (users : IUser []) in 'UsertListComponent'
+
+- Would be interesting to figure where I went wrong. If you have any idea on where I went wrong I would appreciate your feedback. 
+
+- Apologize for lack of comments
+
+- Also, I have tried to modularize the code into what I think would be a standard organization (based on my react experience) 
+
+- In hindsight, React was easier to learn maybe. 
+
+- Thank you for the opportunity to take this take home test. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
 ## Development server
