@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from '../components/navbar/navbar.component';
-import { FooterComponent } from 'src/components/footer/footer.component';
+import { FooterComponent } from '../components/footer/footer.component';
+import { AppRoutingModule } from '../routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { FooterComponent } from 'src/components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
