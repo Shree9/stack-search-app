@@ -40,6 +40,7 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.displayName);
     // it is fecthing the data but i couldnt figure out why it is not storing it in this.users
+    // i was not waiting for an async function to stop. So, I created a new method and called it here.
     this.getResults();
   }
 
