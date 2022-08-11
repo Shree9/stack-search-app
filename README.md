@@ -11,7 +11,8 @@ Note:
 
 - For some reason, I am not able link the data that I retreive from the API with my state variable (users : IUser []) in 'UsertListComponent'
 
-- Would be interesting to figure where I went wrong. If you have any idea on where I went wrong I would appreciate your feedback. 
+- Would be interesting to figure where I went wrong. If you have any idea on where I went wrong I would appreciate your feedback.  
+        - my bad the mistake was i didnt return the data 
 
 - Apologize for lack of comments
 
