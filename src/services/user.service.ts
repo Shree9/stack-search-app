@@ -17,6 +17,7 @@ export class UserService {
   async getUsers()  {
 
       // I was thinking at first to get all users and then filter 
+      // this might not be the best route to go 
       let url = 'https://api.stackexchange.com/2.3/users?site=stackoverflow'; 
     
       await axios({
@@ -39,6 +40,39 @@ export class UserService {
 
       return this.users; 
   }
+
+  async getUsersByDisplayName (displayName: string)  {
+    // improved -- utilizing default filters from stack exchange api 
+    let users : IUser [] = []
+      let url = 'https://api.stackexchange.com/2.3/users'
+      let params = {
+        order : "desc", 
+        sort : "reputation", 
+        inname : displayName, 
+        site : "stackoverflow"
+      } // as suggested by stack exchange api 
+
+      await axios({
+        method: 'get',
+        url: url,
+        responseType: 'json', 
+        params : params
+      }).then( (response) => {
+        console.log(response)
+        const objects = response.data.items; 
+        objects.map ( (object: any) => {
+            console.log("here in axios response")
+            console.log(object)
+            const {user_id,display_name,location ,reputation} = object; 
+            const user : IUser = {user_id,display_name,location ,reputation}
+            users.concat(user)
+            console.log(user)
+        })
+      });
+      console.log(typeof(users))
+      return users;    
+  }
+
 
 
   
