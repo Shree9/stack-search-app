@@ -5,19 +5,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { AppRoutingModule } from '../routing/app-routing.module';
+import { UserDetailComponent } from '../components/user-detail/user-detail.component';
+import { UserListComponent } from '../components/user-list/user-list.component';
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    UserDetailComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
