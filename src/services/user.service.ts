@@ -10,58 +10,57 @@ export class UserService {
 
   constructor() {}
 
-  getUsers() {
-    // I was thinking at first to get all users and then filter
-    // this might not be the best route to go
-    let url = 'https://api.stackexchange.com/2.3/users?site=stackoverflow';
-
-    axios({
-      method: 'get',
-      url: url,
-      responseType: 'json',
-    }).then((response) => {
-      // console.log(response)
-      const objects = response.data.items;
-      objects.map((object: any) => {
-        // console.log("here in axios response")
-        // console.log(object)
-        const { user_id, display_name, location, reputation } = object;
-        const user: IUser = { user_id, display_name, location, reputation };
-        this.users.concat(user);
-        console.log(typeof user);
-      });
-    });
-    console.log(typeof this.users);
-
-    return this.users;
-  }
 
   async getUsersByDisplayName(displayName: string) {
     // improved -- utilizing default filters from stack exchange api
+
+    // url for stackexchange users
     let url = 'https://api.stackexchange.com/2.3/users';
+
+    // Params as suggested by stack exchange api
+    // in descending order of reputation
     let params = {
       order: 'desc',
       sort: 'reputation',
       inname: displayName,
       site: 'stackoverflow',
-    }; // as suggested by stack exchange api
+    };
 
-    const response = await axios({
+    // asynchronously call the stackexchnage api
+    // wait for the call to finish
+    await axios({
       method: 'get',
       url: url,
       responseType: 'json',
       params: params,
-    });
+    })
+      .then((response) => {
+        const user_objects = response.data.items;
+        this.users = user_objects.map((object: any) => {
+          let { user_id, display_name, location, reputation } = object;
+          let user: IUser = { user_id, display_name, location, reputation };
+          return user;
+        });
+      })
+      .catch( (error) =>  {
+        if (error.response) {
+          // REQUEST IS SENT AND RESPONSE WAS RECEIVED (STATUS CODE 2xx)
+          console.log("REQUEST IS SENT AND RESPONSE WAS RECEIVED (STATUS CODE 2xx)"); 
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // NO RESPONSE RECEIVED 
+          console.log(" NO RESPONSE RECEIVED"); 
+          console.log(error.request);
+        } else {
+          // REQUEST SET UP HAS SOME ISSUES 
+          console.log("REQUEST SET UP HAS SOME ISSUES "); 
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      });
 
-    const objects = response.data.items;
-    return objects.map((object: any) => {
-      // console.log("here in axios response")
-      // console.log(object)
-      const { user_id, display_name, location, reputation } = object;
-      const user: IUser = { user_id, display_name, location, reputation };
-      
-      return user
-      // console.log(user)
-    });
+    return this.users;
   }
 }

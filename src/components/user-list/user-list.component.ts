@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
 import { IUser } from '../../domain/user';
 import { UserService } from '../../services/user.service';
 
@@ -39,6 +38,7 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.displayName);
+    
     // it is fecthing the data but i couldnt figure out why it is not storing it in this.users
     // i was not waiting for an async function to stop. So, I created a new method and called it here.
     this.getResults();
@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
     console.log(this.users);
   }
 
-  getDetails(user: any) {
+  getDetails(user: IUser) {
     this._router.navigate(['/user-details'], { state: { user: user } });
   }
 }
