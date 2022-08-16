@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUser } from '../../domain/user';
 import { UserService } from '../../services/user.service';
@@ -10,35 +10,21 @@ import { UserService } from '../../services/user.service';
 export class UserListComponent implements OnInit {
   users: IUser[] = [];
 
-  //   users = [
-  //     {"user_id" : 1011 ,
-  //       "display_name" : "shree",
-  //       "location" : "hyderabad",
-  //       "reputation" : 3400
-  //     },
-  //     {"user_id" : 1010 ,
-  //       "display_name" : "tocho",
-  //       "location" : "hyderabad",
-  //       "reputation" : 53339
-  //     },
-  //     {"user_id" : 1014 ,
-  //       "display_name" : "priscilla",
-  //       "location" : "ohio",
-  //       "reputation" : 47000
-  //     }
-  // ]
   sample: any = [];
   userListError = '';
   displayName: string = '';
 
+
   constructor(private _router: Router, private _userService: UserService) {
+   
     this.displayName =
       this._router.getCurrentNavigation()?.extras.state?.['displayName'];
+
   }
+
 
   ngOnInit(): void {
     console.log(this.displayName);
-    
     // it is fecthing the data but i couldnt figure out why it is not storing it in this.users
     // i was not waiting for an async function to stop. So, I created a new method and called it here.
     this.getResults();
