@@ -1,23 +1,24 @@
-<div class = "container">
-    <ul ngbNav #nav="ngbNav" class="nav-tabs">
-      <li ngbNavItem routerLink="/">
-        <a ngbNavLink>Stack Search</a>
-      </li>
+<mat-toolbar>
 
-      <li ngbNavItem routerLink="/about">
-        <a ngbNavLink>About</a>
-      </li>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle  value="bold" routerLink="/" style="display:table-cell;
+    width:400px;color:blue" >Stack Search </mat-button-toggle>
+    <mat-button-toggle value="italic" routerLink="/about" style="display:table-cell;
+    width:300px;color:green" >About</mat-button-toggle>
+    <mat-button-toggle value="underline" routerLink="/contact" style="display:table-cell;
+    width:300px;color:pink" >Contact</mat-button-toggle>
+  </mat-button-toggle-group>
+  
+  <!-- Binding changes made to the input field to the navbar component's property called displayName
+  any update to this text input field will be reflected on displayName -->
+  <input matInput name= "displayName" placeholder="Enter user name" [(ngModel)]="displayName" style="display:table-cell;
+  width:400px;color:purple"  >
 
-      <li ngbNavItem>
-        <a ngbNavLink>Contact</a>
-      </li>
-      
-      <li ngbNavItem>
-        <input type="text" name= "displayName" placeholder="Enter user name" [(ngModel)]="displayName" >
-        <button type="submit" (click)="onSubmit()"> Submit </button>
-      </li>
+  <!-- event binding when clicked call on submit of app-navbar -->
+  <button matButton type="submit" (click)="onSubmit()" style="display:table-cell;
+  width:100px;background-color:greenyellow" > 
+  
+<mat-icon>search</mat-icon></button>
 
-
-    </ul>
-    <div  [ngbNavOutlet]="nav"></div> 
-</div>
+ 
+</mat-toolbar> 
