@@ -1,7 +1,11 @@
 <div>
-    <h2>Stack User Lists Containing {{displayName}}</h2>
-    <ul *ngFor="let user of users" #user>
-      <button (click)="getDetails(user)"> {{user.display_name}} </button>
-    </ul> 
+    <h1 style="text-align:center;font-size:40px;background-color:aquamarine" >Stack Overflow Users</h1>
+    <h1 style="text-align:center;font-size:40px;background-color:red" > Search Param: {{displayName}}</h1>
+    <mat-list *ngFor="let user of users">
+      <mat-list-item>
+        <button mat-stroked-button color="primary" (click)="getDetails(user)"> {{user.display_name}} </button>
+      </mat-list-item>
+    </mat-list>
+  
   </div>
   
