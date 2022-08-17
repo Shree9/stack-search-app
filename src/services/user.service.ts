@@ -10,7 +10,8 @@ export class UserService {
 
   constructor() {}
 
-
+  // asynchronusly calls stackexchange api using input param 'displayName' 
+  // note the response will in descending order of their reputation. 
   async getUsersByDisplayName(displayName: string) {
     // improved -- utilizing default filters from stack exchange api
 

@@ -12,13 +12,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
 
+
 @NgModule({
+  // All components that make up app module
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
     routingComponents
   ],
+  // Imports for material styles, forms, routing
   imports: [
     BrowserModule,
     MatButtonModule,
@@ -29,7 +32,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle'
     FormsModule, 
     AppRoutingModule
   ],
+  // our app's service providers 
   providers: [UserService],
+  // main component start with presenting this view
   bootstrap: [AppComponent]
 })
 export class AppModule { }
