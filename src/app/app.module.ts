@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { AppRoutingModule, routingComponents } from '../routing/app-routing.module';
@@ -12,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle'
-import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -23,12 +21,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
   ],
   imports: [
     BrowserModule,
-    NgbModule,
     MatButtonModule,
     MatButtonToggleModule, 
     MatIconModule, 
     MatToolbarModule,
-    MatGridListModule,
     MatListModule,
     FormsModule, 
     AppRoutingModule
